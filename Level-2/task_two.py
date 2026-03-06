@@ -19,6 +19,8 @@ class Trainee:
 
     def add_assessment(self, assessment: Assessment) -> None:
         """Function that adds an Assessment to the trainees list of assessments"""
+        if not isinstance(assessment, Assessment):
+            raise TypeError("You must enter an Assessment class assessment")
         self.assessments.append(assessment)
 
     def get_assessment(self, name: str) -> Assessment | None:
@@ -27,6 +29,14 @@ class Trainee:
             if assessment.name == name:
                 return assessment
         return None
+
+    def get_assessment_of_type(self, type: str) -> list[Assessment]:
+        """Function that returns all assessments of a specified type"""
+        assessment_list = []
+        for assessment in self.assessments:
+            if assessment.type == type:
+                assessment_list.append(assessment)
+        return assessment_list
 
 
 class Assessment:
@@ -49,6 +59,39 @@ class Assessment:
         """Verifies that the score is valid"""
         if self.score > 100 or self.score < 0:
             raise ValueError("Must be within score range of 0-100")
+
+
+class MultipleChoiceAssessment(Assessment):
+    """Child class of Assessment"""
+
+    def __init__(self, name, score, type="multiple-choice"):
+        super().__init__(name, type, score)
+
+    def calculate_score(self):
+        """Calculates weighted score for multiple choice assessments"""
+        return self.score * 0.7
+
+
+class TechnicalAssessment(Assessment):
+    """Child class of Assessment"""
+
+    def __init__(self, name, score, type="technical"):
+        super().__init__(name, type, score)
+
+    def calculate_score(self):
+        """Calculates weighted score for technical assessments"""
+        return self.score
+
+
+class PresentationAssessment(Assessment):
+    """Child class of Assessment"""
+
+    def __init__(self, name, score, type="presentation"):
+        super().__init__(name, type, score)
+
+    def calculate_score(self):
+        """Calculates weighted score for presentation assessments"""
+        return self.score * 0.6
 
 
 if __name__ == "__main__":
