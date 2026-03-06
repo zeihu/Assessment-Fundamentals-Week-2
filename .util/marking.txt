@@ -1,17 +1,18 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.14.3, pytest-9.0.2, pluggy-1.6.0
 rootdir: /home/runner/work/Assessment-Fundamentals-Week-2/Assessment-Fundamentals-Week-2
-collected 9 items / 2 errors
+collected 16 items / 1 error
 
-!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
-============================== 2 errors in 0.13s ===============================
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.13s ===============================
 ************* Module task_one
 Level-1/task_one.py:35:34: W0622: Redefining built-in 'type' (redefined-builtin)
 ************* Module task_two
-Level-2/task_two.py:35:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:58:27: E0602: Undefined variable 'MultipleChoiceAssessment' (undefined-variable)
-Level-2/task_two.py:60:27: E0602: Undefined variable 'TechnicalAssessment' (undefined-variable)
-Level-2/task_two.py:62:27: E0602: Undefined variable 'MultipleChoiceAssessment' (undefined-variable)
+Level-2/task_two.py:33:37: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-2/task_two.py:45:34: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-2/task_two.py:67:36: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-2/task_two.py:78:36: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-2/task_two.py:89:36: W0622: Redefining built-in 'type' (redefined-builtin)
 ************* Module task_three
 Level-3/task_three.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-3/task_three.py:17:0: C0115: Missing class docstring (missing-class-docstring)
@@ -25,5 +26,5 @@ Level-3/task_three.py:35:23: W0621: Redefining name 'quiz' from outer scope (lin
 Level-3/task_three.py:33:0: R0903: Too few public methods (0/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.19/10 (previous run: 7.19/10, +0.00)
+Your code has been rated at 8.66/10 (previous run: 8.66/10, +0.00)
 
