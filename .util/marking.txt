@@ -8,11 +8,7 @@ Level-2/test_two_task.py .......                                         [ 66%]
 Level-3/test_three_task.py ........                                      [100%]
 
 ============================== 24 passed in 0.04s ==============================
-************* Module task_three
-Level-3/task_three.py:111:23: W0621: Redefining name 'questions' from outer scope (line 150) (redefined-outer-name)
-Level-3/task_three.py:121:23: W0621: Redefining name 'quiz' from outer scope (line 157) (redefined-outer-name)
-Level-3/task_three.py:137:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
 
-------------------------------------------------------------------
-Your code has been rated at 9.84/10 (previous run: 9.84/10, +0.00)
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
