@@ -5,6 +5,7 @@ import pytest
 from dateutil.relativedelta import relativedelta
 from datetime import date, datetime
 
+
 def test_trainee():
     years_ago = date.today() - relativedelta(years=20)
 
