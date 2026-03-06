@@ -108,9 +108,9 @@ class Question:
 class Quiz:
     """Quiz class, contains list of questions, name of quiz and type of quiz"""
 
-    def __init__(self, questions: list, name: str, assessment_type: str):
+    def __init__(self, quiz_questions: list, name: str, assessment_type: str):
         """Stores variables for quiz"""
-        self.questions = questions
+        self.questions = quiz_questions
         self.name = name
         self.assessment_type = assessment_type
 
@@ -118,9 +118,9 @@ class Quiz:
 class Marking:
     """Marking class, marks quizzes and returns assessment for trainee"""
 
-    def __init__(self, quiz: Quiz) -> None:
+    def __init__(self, the_quiz: Quiz) -> None:
         """Stores variables for marking"""
-        self._quiz = quiz
+        self._quiz = the_quiz
 
     def mark(self) -> int:
         """Marks the quizzes, gives one correct point for each question,
@@ -143,6 +143,7 @@ class Marking:
             return TechnicalAssessment(self._quiz.name, self.mark(), self._quiz.assessment_type)
         if self._quiz.assessment_type == "presentation":
             return PresentationAssessment(self._quiz.name, self.mark(), self._quiz.assessment_type)
+        return None
 
 
 if __name__ == "__main__":
