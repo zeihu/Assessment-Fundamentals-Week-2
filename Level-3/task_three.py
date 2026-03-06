@@ -1,3 +1,4 @@
+# pylint: disable=too-few-public-methods
 """Sets up Trainee and Assessment classes to keep track of trainees and assessment data"""
 from datetime import date, datetime
 
@@ -30,11 +31,11 @@ class Trainee:
                 return assessment
         return None
 
-    def get_assessment_of_type(self, type: str) -> list[Assessment]:
+    def get_assessment_of_type(self, assessment_type: str) -> list[Assessment]:
         """Function that returns all assessments of a specified type"""
         assessment_list = []
         for assessment in self.assessments:
-            if assessment.type == type:
+            if assessment.assessment_type == assessment_type:
                 assessment_list.append(assessment)
         return assessment_list
 
@@ -42,17 +43,17 @@ class Trainee:
 class Assessment:
     """Assessment class, keeps track of data related to assessments"""
 
-    def __init__(self, name: str, type: str, score: float):
+    def __init__(self, name: str, assessment_type: str, score: float):
         """Initialises variables in assessment class"""
         self.name = name
-        self.type = type
+        self.assessment_type = assessment_type
         self.score = score
-        self.verify_type()
+        self.verify_assessment_type()
         self.verify_score()
 
-    def verify_type(self):
+    def verify_assessment_type(self):
         """Verifies that the assessment type is valid"""
-        if self.type not in ("multiple-choice", "technical", "presentation"):
+        if self.assessment_type not in ("multiple-choice", "technical", "presentation"):
             raise ValueError("Must be an allowed assessment type")
 
     def verify_score(self):
@@ -64,8 +65,8 @@ class Assessment:
 class MultipleChoiceAssessment(Assessment):
     """Child class of Assessment"""
 
-    def __init__(self, name, score, type="multiple-choice"):
-        super().__init__(name, type, score)
+    def __init__(self, name, score, assessment_type="multiple-choice"):
+        super().__init__(name, assessment_type, score)
 
     def calculate_score(self):
         """Calculates weighted score for multiple choice assessments"""
@@ -75,8 +76,8 @@ class MultipleChoiceAssessment(Assessment):
 class TechnicalAssessment(Assessment):
     """Child class of Assessment"""
 
-    def __init__(self, name, score, type="technical"):
-        super().__init__(name, type, score)
+    def __init__(self, name, score, assessment_type="technical"):
+        super().__init__(name, assessment_type, score)
 
     def calculate_score(self):
         """Calculates weighted score for technical assessments"""
@@ -86,8 +87,8 @@ class TechnicalAssessment(Assessment):
 class PresentationAssessment(Assessment):
     """Child class of Assessment"""
 
-    def __init__(self, name, score, type="presentation"):
-        super().__init__(name, type, score)
+    def __init__(self, name, score, assessment_type="presentation"):
+        super().__init__(name, assessment_type, score)
 
     def calculate_score(self):
         """Calculates weighted score for presentation assessments"""
@@ -95,28 +96,35 @@ class PresentationAssessment(Assessment):
 
 
 class Question:
+    """Question class, contains question, correct answers and chosen answers"""
 
     def __init__(self, question: str, chosen_answer: str, correct_answer: str):
+        """Stores variables for question"""
         self.question = question
         self.chosen_answer = chosen_answer
         self.correct_answer = correct_answer
 
 
 class Quiz:
+    """Quiz class, contains list of questions, name of quiz and type of quiz"""
 
-    def __init__(self, questions: list, name: str, type: str):
+    def __init__(self, questions: list, name: str, assessment_type: str):
+        """Stores variables for quiz"""
         self.questions = questions
         self.name = name
-        self.type = type
+        self.assessment_type = assessment_type
 
 
 class Marking:
+    """Marking class, marks quizzes and returns assessment for trainee"""
 
     def __init__(self, quiz: Quiz) -> None:
+        """Stores variables for marking"""
         self._quiz = quiz
-        pass
 
     def mark(self) -> int:
+        """Marks the quizzes, gives one correct point for each question,
+        returns score as percentage"""
         score = 0
         no_of_questions = len(self._quiz.questions)
         if no_of_questions == 0:
@@ -127,12 +135,14 @@ class Marking:
         return (score / no_of_questions) * 100
 
     def generate_assessment(self) -> Assessment:
-        if self._quiz.type == "multiple-choice":
-            return MultipleChoiceAssessment(self._quiz.name, self.mark(), self._quiz.type)
-        if self._quiz.type == "technical":
-            return TechnicalAssessment(self._quiz.name, self.mark(), self._quiz.type)
-        if self._quiz.type == "presentation":
-            return PresentationAssessment(self._quiz.name, self.mark(), self._quiz.type)
+        """Creates the assessment for trainees with name, score and type of quiz"""
+        if self._quiz.assessment_type == "multiple-choice":
+            return MultipleChoiceAssessment(self._quiz.name, self.mark(),
+                                            self._quiz.assessment_type)
+        if self._quiz.assessment_type == "technical":
+            return TechnicalAssessment(self._quiz.name, self.mark(), self._quiz.assessment_type)
+        if self._quiz.assessment_type == "presentation":
+            return PresentationAssessment(self._quiz.name, self.mark(), self._quiz.assessment_type)
 
 
 if __name__ == "__main__":

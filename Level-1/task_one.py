@@ -32,18 +32,18 @@ class Trainee:
 class Assessment:
     """Assessment class, keeps track of data related to assessments"""
 
-    def __init__(self, name: str, type: str, score: float):
+    def __init__(self, name: str, assessment_type: str, score: float):
         """Initialises variables in assessment class"""
         self.name = name
-        self.type = type
+        self.assessment_type = assessment_type
         self.score = score
-        self.verify_type()
+        self.verify_assessment_type()
         self.verify_score()
 
-    def verify_type(self):
+    def verify_assessment_type(self):
         """Verifies that the assessment type is valid"""
-        if self.type not in ("multiple-choice", "technical", "presentation"):
-            raise ValueError("Must be an allowed assessment type")
+        if self.assessment_type not in ("multiple-choice", "technical", "presentation"):
+            raise ValueError("Must be an allowed assessment assessment_type")
 
     def verify_score(self):
         """Verifies that the score is valid"""
