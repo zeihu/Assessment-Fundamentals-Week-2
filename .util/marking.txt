@@ -1,10 +1,13 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.14.3, pytest-9.0.2, pluggy-1.6.0
 rootdir: /home/runner/work/Assessment-Fundamentals-Week-2/Assessment-Fundamentals-Week-2
-collected 16 items / 1 error
+collected 24 items
 
-!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-=============================== 1 error in 0.13s ===============================
+Level-1/test_one_task.py .........                                       [ 37%]
+Level-2/test_two_task.py .......                                         [ 66%]
+Level-3/test_three_task.py ........                                      [100%]
+
+============================== 24 passed in 0.04s ==============================
 ************* Module task_one
 Level-1/task_one.py:35:34: W0622: Redefining built-in 'type' (redefined-builtin)
 ************* Module task_two
@@ -14,17 +17,24 @@ Level-2/task_two.py:67:36: W0622: Redefining built-in 'type' (redefined-builtin)
 Level-2/task_two.py:78:36: W0622: Redefining built-in 'type' (redefined-builtin)
 Level-2/task_two.py:89:36: W0622: Redefining built-in 'type' (redefined-builtin)
 ************* Module task_three
-Level-3/task_three.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Level-3/task_three.py:17:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:17:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-Level-3/task_three.py:25:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:27:23: W0621: Redefining name 'questions' from outer scope (line 41) (redefined-outer-name)
-Level-3/task_three.py:27:51: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-3/task_three.py:25:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-Level-3/task_three.py:33:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:35:23: W0621: Redefining name 'quiz' from outer scope (line 48) (redefined-outer-name)
-Level-3/task_three.py:33:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:33:37: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:45:34: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:67:36: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:78:36: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:89:36: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:97:0: C0115: Missing class docstring (missing-class-docstring)
+Level-3/task_three.py:97:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:105:0: C0115: Missing class docstring (missing-class-docstring)
+Level-3/task_three.py:107:23: W0621: Redefining name 'questions' from outer scope (line 140) (redefined-outer-name)
+Level-3/task_three.py:107:51: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:105:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:113:0: C0115: Missing class docstring (missing-class-docstring)
+Level-3/task_three.py:115:23: W0621: Redefining name 'quiz' from outer scope (line 147) (redefined-outer-name)
+Level-3/task_three.py:117:8: W0107: Unnecessary pass statement (unnecessary-pass)
+Level-3/task_three.py:119:4: C0116: Missing function or method docstring (missing-function-docstring)
+Level-3/task_three.py:129:4: C0116: Missing function or method docstring (missing-function-docstring)
+Level-3/task_three.py:129:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.66/10 (previous run: 8.66/10, +0.00)
+Your code has been rated at 8.78/10 (previous run: 8.78/10, +0.00)
 
